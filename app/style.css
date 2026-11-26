@@ -1,0 +1,124 @@
+/* Indonesia in Numbers — navy #0b3d91, white, one amber accent. System fonts
+   only, so the site renders identically offline. Layout is fluid down to a
+   360px phone: cards stack, tables scroll sideways, nav wraps. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1c2733;
+  background: #f2f4f7;
+  line-height: 1.5;
+  font-size: 15px;
+}
+a { color: #0b3d91; }
+.masthead { background: #0b3d91; color: #fff; }
+.masthead-inner {
+  max-width: 1100px; margin: 0 auto; padding: 18px 20px 12px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+}
+.brand { font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-weight: 700; letter-spacing: .2px; }
+.brand-sub { font-size: 13px; color: #c9d6ea; margin-top: 2px; }
+.masthead-date { font-size: 13px; color: #ffd98a; white-space: nowrap; }
+.nav {
+  max-width: 1100px; margin: 0 auto; padding: 0 20px 12px;
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.nav-link {
+  color: #dbe4f0; text-decoration: none; font-weight: 600; font-size: 14px;
+  padding: 7px 12px; border-radius: 6px;
+}
+.nav-link:hover { background: #144a9e; color: #fff; }
+.nav-link.active { background: #f0a500; color: #1c2733; }
+#view { max-width: 1100px; margin: 0 auto; padding: 20px 20px 8px; }
+.section-head h2 { font-family: Georgia, serif; font-size: 28px; margin: 4px 0 4px; color: #0b3d91; }
+.section-head p { margin: 0 0 6px; color: #3c4654; }
+.source-line { font-size: 13px; color: #5b6472; }
+.card-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0;
+}
+.card {
+  background: #fff; border: 1px solid #dbe1e8; border-top: 4px solid #0b3d91;
+  border-radius: 8px; padding: 12px 14px;
+}
+.card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: #5b6472; }
+.card-value { font-size: 27px; font-weight: 800; color: #0b3d91; margin: 4px 0 2px; white-space: nowrap; }
+.card-meta { font-size: 12px; color: #5b6472; }
+.panel {
+  background: #fff; border: 1px solid #dbe1e8; border-radius: 8px;
+  padding: 16px 18px; margin: 16px 0;
+}
+.panel h3 { margin: 0 0 8px; font-size: 18px; color: #0b3d91; }
+.panel p { margin: 8px 0; }
+.panel-note { font-size: 13px; color: #5b6472; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.two-col .panel { margin: 0 0 16px; }
+.sub-head { font-size: 20px; color: #0b3d91; margin: 20px 0 0; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th, .data-table td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #e3e8ef; }
+.data-table thead th { color: #0b3d91; font-size: 13px; }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.sort-btn {
+  background: none; border: 0; padding: 0; font: inherit; color: inherit;
+  cursor: pointer; font-weight: 700;
+}
+.sort-btn:hover { text-decoration: underline; }
+#prov-search {
+  width: 100%; max-width: 340px; padding: 9px 12px; margin-bottom: 10px;
+  border: 1px solid #b9c2cd; border-radius: 6px; font-size: 14px;
+}
+.toggle { display: inline-flex; gap: 0; margin: 4px 0 12px; border: 1px solid #0b3d91; border-radius: 6px; overflow: hidden; }
+.toggle button {
+  background: #fff; color: #0b3d91; border: 0; padding: 8px 14px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.toggle button.active { background: #0b3d91; color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.chip {
+  background: #fff; border: 1px solid #0b3d91; color: #0b3d91; border-radius: 20px;
+  padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.chip.active { background: #0b3d91; color: #fff; }
+.prov-list { list-style: none; margin: 0; padding: 0; max-height: 560px; overflow-y: auto; }
+.prov-item {
+  display: flex; justify-content: space-between; width: 100%;
+  background: none; border: 0; border-bottom: 1px solid #eef1f4;
+  padding: 9px 6px; font-size: 14px; cursor: pointer; text-align: left;
+}
+.prov-item:hover { background: #f2f6fb; }
+.prov-item.selected { background: #fff3d6; font-weight: 700; }
+.prov-item .num { font-variant-numeric: tabular-nums; color: #5b6472; }
+.detail-list { display: grid; grid-template-columns: 170px 1fr; row-gap: 10px; margin: 0; }
+.detail-list dt { font-weight: 700; color: #5b6472; font-size: 13px; }
+.detail-list dd { margin: 0; font-size: 15px; }
+.meter { height: 8px; background: #e3e8ef; border-radius: 4px; margin-top: 5px; max-width: 280px; }
+.meter div { height: 8px; background: #f0a500; border-radius: 4px; }
+.donut-wrap { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.donut-wrap svg { max-width: 260px; }
+.legend { list-style: none; margin: 0; padding: 0; font-size: 14px; flex: 1; min-width: 260px; }
+.legend li { padding: 5px 0; border-bottom: 1px solid #eef1f4; }
+.legend-line { font-size: 13px; color: #5b6472; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.fact-list { margin: 0; padding-left: 20px; }
+.fact-list li { margin: 8px 0; }
+.muted { color: #5b6472; font-weight: 400; font-size: 14px; }
+.footer {
+  max-width: 1100px; margin: 8px auto 0; padding: 16px 20px 28px;
+  border-top: 2px solid #0b3d91; color: #5b6472; font-size: 13px;
+}
+.footer p { margin: 4px 0; }
+svg text { font-family: inherit; }
+@media (max-width: 860px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .brand { font-size: 24px; }
+  .masthead-inner { flex-direction: column; gap: 2px; }
+  .masthead-date { color: #ffd98a; }
+}
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .card-value { font-size: 22px; }
+  .section-head h2 { font-size: 23px; }
+  .detail-list { grid-template-columns: 130px 1fr; }
+  .panel { padding: 12px 12px; }
+  .data-table { display: block; overflow-x: auto; }
+}
